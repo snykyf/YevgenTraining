@@ -5,19 +5,19 @@ angular.module('fInfo', ['ngRoute'])
 		$routeProvider.
 			when('/dashboard', {
 				templateUrl: 'templates/dashboard.html',
-				controller: 'FInfoCtrl'
+				controller: 'DashboardCtrl'
 			}).
 			when('/championships', {
 				templateUrl: 'templates/championships.html',
-				controller: 'FInfoCtrl'
+				controller: 'ChampionshipsCtrl'
 			}).
 			when('/matches', {
 				templateUrl: 'templates/matches.html',
-				controller: 'FInfoCtrl'
+				controller: 'MatchesCtrl'
 			}).
 			when('/teams', {
 				templateUrl: 'templates/teams.html',
-				controller: 'FInfoCtrl'
+				controller: 'TeamsCtrl'
 			}).
 			otherwise({
 				redirectTo: '/dashboard'
