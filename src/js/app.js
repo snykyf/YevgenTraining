@@ -7,13 +7,25 @@ angular.module('footballInfo', ['ngRoute'])
 				templateUrl: 'templates/dashboard.html',
 				controller: 'DashboardCtrl'
 			}).
+			when('/championships/:id', {
+				templateUrl: 'templates/detailed-championship.html',
+				controller: 'DetailedChampionshipCtrl'
+			}).
 			when('/championships', {
 				templateUrl: 'templates/championships.html',
 				controller: 'ChampionshipsCtrl'
 			}).
-			when('/matches', {
+			when('/matches/:id', {
+				templateUrl: 'templates/detailed-match.html',
+				controller: 'DetailedMatchCtrl'
+			})
+			.when('/matches', {
 				templateUrl: 'templates/matches.html',
 				controller: 'MatchesCtrl'
+			}).
+			when('/teams/:id', {
+				templateUrl: 'templates/detailed-team.html',
+				controller: 'DetailedTeamCtrl'
 			}).
 			when('/teams', {
 				templateUrl: 'templates/teams.html',

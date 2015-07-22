@@ -1,3 +1,6 @@
+<!--TODO: temporary html to see if everything working-->
 <ul>
-	<li ng-repeat="championship in championships">{{championship.title}}</li>
+	<li ng-repeat="championship in championships">
+		<a ng-href="#/championships/{{championship.id_championship}}">{{championship.title}}</a>
+	</li>
 </ul>

@@ -21,6 +21,8 @@ First Angular application - Football info.
  - add detailed view (on click)
  - the same + custom directive
 
+ - add Dashboard view
+
  - set gulp tasks
  - add bootstrap
  - add phone screen supporting
