@@ -1,0 +1,14 @@
+{
+  "name": "footballInfo",
+  "version": "0.0.0",
+  "authors": [
+    "Yevgen Motrych"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "1.4.3"
+  }
+}
