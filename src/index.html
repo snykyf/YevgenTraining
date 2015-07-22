@@ -4,9 +4,16 @@
 		<title>Football Info</title>
 	</head>
 	<body ng-app="fInfo">
-		<div ng-controller="FInfoCtrl">{{gretting}}</div>
+		<a href="#/dashboard">dashboard</a>
+		<a href="#/championships">championships</a>
+		<a href="#/teams">teams</a>
+		<a href="#/matches">matches</a>
+
+		<div ng-view></div>
 
 		<script src="../bower_components/angular/angular.js"></script>
+		<script src="../bower_components/angular-route/angular-route.js"></script>
+		<script src="js/app.js"></script>
 		<script src="js/controllers/fInfoCtrl.js"></script>
 	</body>
 </html>
