@@ -1,9 +1,13 @@
-angular.module('fInfo')
+angular.module('footballInfo')
 	.controller('TeamsCtrl', [
-		'$scope',
-		function ($scope) {
+		'$scope', '$http',
+		function ($scope, $http) {
 			'use strict';
 
-			$scope.teams = "Hi, it's Teams page";
+			$http
+				.get("http://footballbet.com.ua/api/teams/")
+				.success(function (data) {
+					$scope.teams = data.result;
+				});
 		}
 	]);

@@ -1,4 +1,4 @@
-angular.module('fInfo', ['ngRoute'])
+angular.module('footballInfo', ['ngRoute'])
 	.config(function ($routeProvider) {
 		'use strict';
 
