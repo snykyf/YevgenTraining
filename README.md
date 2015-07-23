@@ -4,8 +4,8 @@ First Angular application - Football info.
  - set bower (done)
  - set gulp (done)
 
- - create simple 3 angular views, like jQuery tabs (pl)
- - add gulp task
+ - create simple 3 angular views, like jQuery tabs (done)
+ - add gulp task (done)
  - the same + ui-router
  - get data for views from API
 
@@ -25,7 +25,7 @@ First Angular application - Football info.
  - add Dashboard view
 
  - add bootstrap
- - add gulp task
+ - add gulp task (done)
  - add phone screen supporting
 
  - get it worked from dest folder
