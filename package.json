@@ -1,0 +1,32 @@
+{
+  "name": "YevgenTraining",
+  "version": "0.0.0",
+  "description": "First Angular application - Football info.",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-concat": "~2.6.0",
+    "gulp-uglify": "~1.2.0",
+    "gulp-sass": "~2.0.4",
+    "gulp-minify-css": "~1.2.0",
+    "gulp-minify-html": "~1.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/i10111pn/YevgenTraining.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "Yevgen Motrych",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/i10111pn/YevgenTraining/issues"
+  },
+  "homepage": "https://github.com/i10111pn/YevgenTraining"
+}
