@@ -15,7 +15,7 @@ gulp.task('scripts', function () {
 		.pipe(concat('main.js'))
 		.pipe(rename({suffix: '.min'}))
 		.pipe(uglify())
-		.pipe(gulp.dest('dest/js'));
+		.pipe(gulp.dest('dist/js'));
 });
 
 // Concatenate HTML
@@ -23,7 +23,7 @@ gulp.task('templates', function () {
 	return gulp.src('src/templates/*.html')
 		.pipe(concat('main.html'))
 		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest('dest/templates'));
+		.pipe(gulp.dest('dist/templates'));
 });
 
 // Compile and minify SASS
@@ -31,7 +31,8 @@ gulp.task('sass', function () {
 	return gulp.src('src/sass/main.scss')
 		.pipe(sass())
 		.pipe(minifyCSS())
-		.pipe(gulp.dest('dest/css/'));
+		.pipe(rename({suffix: '.min'}))
+		.pipe(gulp.dest('dist/css/'));
 });
 
 // Default Task

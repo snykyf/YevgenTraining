@@ -28,7 +28,7 @@ First Angular application - Football info.
  - add gulp task (done)
  - add phone screen supporting
 
- - get it worked from dest folder
+ - get it worked from dist folder
 
  - refactoring
  - add tests
