@@ -1,10 +1,10 @@
 First Angular application - Football info.
 
- + first commit
- + set bower
- + set gulp
+ - first commit (done)
+ - set bower (done)
+ - set gulp (done)
 
- - create simple 3 angular views, like jQuery tabs
+ - create simple 3 angular views, like jQuery tabs (pl)
  - the same + ui-router
  - get data for views from API
 
