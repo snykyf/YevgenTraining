@@ -12,17 +12,14 @@ var minifyCSS = require("gulp-minify-css");
 // Concatenate & Minify JS
 gulp.task('scripts', function () {
 	return gulp.src('src/js/**/*.js')
-		.pipe(concat('main.js'))
-		.pipe(rename({suffix: '.min'}))
+		.pipe(concat('main.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('dist/js'));
 });
 
-// Concatenate HTML
+// Move HTML
 gulp.task('templates', function () {
 	return gulp.src('src/templates/*.html')
-		.pipe(concat('main.html'))
-		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('dist/templates'));
 });
 
