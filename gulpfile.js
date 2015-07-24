@@ -10,17 +10,25 @@ var minifyCSS = require("gulp-minify-css");
 
 
 // Concatenate & Minify JS
-gulp.task('scripts', function () {
+gulp.task('src-js', function () {
 	return gulp.src('src/js/**/*.js')
 		.pipe(concat('main.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('dist/js'));
 });
 
-// Move HTML
-gulp.task('templates', function () {
-	return gulp.src('src/templates/*.html')
-		.pipe(gulp.dest('dist/templates'));
+// Move libs
+gulp.task('move-libs', function () {
+	return gulp.src('bower_components/**/**.min.js')
+		.pipe(gulp.dest('dist/libs'));
+});
+
+gulp.task('scripts', ['src-js', 'move-libs']);
+
+// Move HTML and templates
+gulp.task('html', function () {
+	return gulp.src('src/**/*.html')
+		.pipe(gulp.dest('dist'));
 });
 
 // Compile and minify SASS
@@ -33,4 +41,4 @@ gulp.task('sass', function () {
 });
 
 // Default Task
-gulp.task('default', ['scripts', 'templates', 'sass']);
+gulp.task('default', ['scripts', 'html', 'sass']);
