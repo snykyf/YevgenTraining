@@ -5,16 +5,17 @@
 		<link rel="stylesheet" href="../dist/css/main.min.css"><!---->
 	</head>
 	<body ng-app="footballInfo">
-		<a href="#/dashboard">Dashboard</a>
-		<a href="#/championships">Championships</a>
-		<a href="#/teams">Teams</a>
-		<a href="#/matches">Matches</a>
+		<a ui-sref="dashboard">Dashboard</a>
+		<a ui-sref="championships">Championships</a>
+		<a ui-sref="teams">Teams</a>
+		<a ui-sref="matches">Matches</a>
 
-		<div class="container" ng-view></div>
+		<div class="container" ui-view></div>
 
 		<!--TODO: use sources only from dist folder-->
 		<script src="../bower_components/angular/angular.js"></script>
-		<script src="../bower_components/angular-route/angular-route.js"></script>
+		<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
 		<script src="js/app.js"></script>
 		<script src="js/controllers/ChampionshipsCtrl.js"></script>
 		<script src="js/controllers/DetailedChampionshipCtrl.js"></script>

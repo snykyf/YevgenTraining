@@ -1,6 +1,6 @@
 <!--TODO: temporary html to see if everything working-->
 <ul>
 	<li ng-repeat="match in matches">
-		<a ng-href="#/matches/{{match.idMatch}}">{{match.firstTeam }} - {{match.secondTeam}}</a>
+		<a ui-sref="matches/{{match.idMatch}}">{{match.firstTeam }} - {{match.secondTeam}}</a>
 	</li>
 </ul>
