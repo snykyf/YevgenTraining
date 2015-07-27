@@ -2,25 +2,18 @@
 <html>
 	<head>
 		<title>Football Info</title>
+		<link rel="stylesheet" href="css/main.min.css"><!---->
 	</head>
 	<body ng-app="footballInfo">
-		<a href="#/dashboard">dashboard</a>
-		<a href="#/championships">championships</a>
-		<a href="#/teams">teams</a>
-		<a href="#/matches">matches</a>
-		<div>-------------------------------------------------------------</div>
+		<a href="#/dashboard">Dashboard</a>
+		<a href="#/championships">Championships</a>
+		<a href="#/teams">Teams</a>
+		<a href="#/matches">Matches</a>
 
-		<div ng-view></div>
+		<div class="container" ng-view></div>
 
-		<script src="../bower_components/angular/angular.js"></script>
-		<script src="../bower_components/angular-route/angular-route.js"></script>
-		<script src="js/app.js"></script>
-		<script src="js/controllers/ChampionshipsCtrl.js"></script>
-		<script src="js/controllers/DetailedChampionshipCtrl.js"></script>
-		<script src="js/controllers/DashboardCtrl.js"></script>
-		<script src="js/controllers/MatchesCtrl.js"></script>
-		<script src="js/controllers/DetailedMatchCtrl.js"></script>
-		<script src="js/controllers/TeamsCtrl.js"></script>
-		<script src="js/controllers/DetailedTeamCtrl.js"></script>
+		<!--TODO: use sources only from dist folder-->
+		<script src="vendor/vendor.min.js"></script>
+		<script src="js/main.min.js"></script>
 	</body>
 </html>
