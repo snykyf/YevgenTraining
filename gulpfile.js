@@ -20,7 +20,8 @@ gulp.task('src-js', function () {
 // Move libs
 gulp.task('move-libs', function () {
 	return gulp.src('bower_components/**/**.min.js')
-		.pipe(gulp.dest('dist/libs'));
+		.pipe(concat('vendor.min.js'))
+		.pipe(gulp.dest('dist/vendor'));
 });
 
 gulp.task('scripts', ['src-js', 'move-libs']);
