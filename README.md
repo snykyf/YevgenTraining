@@ -6,8 +6,8 @@ First Angular application - Football info.
 
  - create simple 3 angular views, like jQuery tabs (done)
  - add gulp task (done)
- - the same + ui-router
- - get data for views from API
+ - the same + ui-router (done)
+ - get data for views from API (done)
 
  - add Matches view
  - the same + custom directive
@@ -28,8 +28,7 @@ First Angular application - Football info.
  - add gulp task (done)
  - add phone screen supporting
 
- - get it worked from dist folder
+ - get it worked from dist folder (done)
 
  - refactoring
  - add tests
-

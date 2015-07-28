@@ -2,18 +2,17 @@
 <html>
 	<head>
 		<title>Football Info</title>
-		<link rel="stylesheet" href="css/main.min.css"><!---->
+		<link rel="stylesheet" href="css/main.css"><!---->
 	</head>
 	<body ng-app="footballInfo">
-		<a href="#/dashboard">Dashboard</a>
-		<a href="#/championships">Championships</a>
-		<a href="#/teams">Teams</a>
-		<a href="#/matches">Matches</a>
+		<a ui-sref="dashboard">Dashboard</a>
+		<a ui-sref="championships">Championships</a>
+		<a ui-sref="teams">Teams</a>
+		<a ui-sref="matches">Matches</a>
 
-		<div class="container" ng-view></div>
+		<div class="container" ui-view></div>
 
-		<!--TODO: use sources only from dist folder-->
-		<script src="vendor/vendor.min.js"></script>
-		<script src="js/main.min.js"></script>
+		<script src="vendor/vendor.js"></script>
+		<script src="js/main.js"></script>
 	</body>
 </html>

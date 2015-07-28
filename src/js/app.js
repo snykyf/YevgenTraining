@@ -1,37 +1,43 @@
-angular.module('footballInfo', ['ngRoute'])
-	.config(function ($routeProvider) {
+angular.module('footballInfo', ['ui.router'])
+	.config(function ($stateProvider, $urlRouterProvider) {
 		'use strict';
 
-		$routeProvider.
-			when('/dashboard', {
+		$urlRouterProvider.otherwise("/dashboard");
+
+		$stateProvider
+			.state('dashboard', {
+				url: '/dashboard',
 				templateUrl: 'templates/dashboard.html',
 				controller: 'DashboardCtrl'
-			}).
-			when('/championships/:id', {
-				templateUrl: 'templates/detailed-championship.html',
-				controller: 'DetailedChampionshipCtrl'
-			}).
-			when('/championships', {
+			})
+			.state('championships', {
+				url: '/championships',
 				templateUrl: 'templates/championships.html',
 				controller: 'ChampionshipsCtrl'
-			}).
-			when('/matches/:id', {
+			})
+			.state('championship', {
+				url: '/championships/:id',
+				templateUrl: 'templates/detailed-championship.html',
+				controller: 'DetailedChampionshipCtrl'
+			})
+			.state('matches', {
+				url: '/matches',
+				templateUrl: 'templates/matches.html',
+				controller: 'MatchesCtrl'
+			})
+			.state('match', {
+				url: '/matches/:id',
 				templateUrl: 'templates/detailed-match.html',
 				controller: 'DetailedMatchCtrl'
 			})
-			.when('/matches', {
-				templateUrl: 'templates/matches.html',
-				controller: 'MatchesCtrl'
-			}).
-			when('/teams/:id', {
-				templateUrl: 'templates/detailed-team.html',
-				controller: 'DetailedTeamCtrl'
-			}).
-			when('/teams', {
+			.state('teams', {
+				url: '/teams',
 				templateUrl: 'templates/teams.html',
 				controller: 'TeamsCtrl'
-			}).
-			otherwise({
-				redirectTo: '/dashboard'
+			})
+			.state('team', {
+				url: '/teams/:id',
+				templateUrl: 'templates/detailed-team.html',
+				controller: 'DetailedTeamCtrl'
 			});
 	});
