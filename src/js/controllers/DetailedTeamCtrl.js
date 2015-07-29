@@ -9,7 +9,7 @@ angular.module('footballInfo')
 				.get("http://footballbet.com.ua/api/teams/")
 				.success(function (data) {
 					$scope.team = data.result.filter(function (team) {
-						return team.id_championship === $stateParams.id;
+						return team.id_teams === $stateParams.id;
 					})[0];
 				});
 		}
