@@ -5,8 +5,9 @@ angular.module('footballInfo')
 			'use strict';
 
 			//TODO: move to service
+			var url = 'http://footballbet.com.ua/api/teams/';
 			$http
-				.get("http://footballbet.com.ua/api/teams/")
+				.get(url)
 				.success(function (data) {
 					$scope.team = data.result.filter(function (team) {
 						return team.id_teams === $stateParams.id;

@@ -1,13 +1,9 @@
 angular.module('footballInfo')
 	.controller('ChampionshipsCtrl', [
-		'$scope', '$http',
-		function ($scope, $http) {
+		'$scope', '$http', 'championshipsArr',
+		function ($scope, $http, championshipsArr) {
 			'use strict';
 
-			$http
-				.get("http://footballbet.com.ua/api/championships/")
-				.success(function (data) {
-					$scope.championships = data.result;
-				});
+			$scope.championships = championshipsArr;
 		}
 	]);

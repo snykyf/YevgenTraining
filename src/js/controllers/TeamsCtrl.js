@@ -4,8 +4,9 @@ angular.module('footballInfo')
 		function ($scope, $http) {
 			'use strict';
 
+			var url = 'http://footballbet.com.ua/api/teams/';
 			$http
-				.get("http://footballbet.com.ua/api/teams/")
+				.get(url)
 				.success(function (data) {
 					$scope.teams = data.result;
 				});

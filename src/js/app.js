@@ -16,6 +16,12 @@ angular.module('footballInfo', ['ui.router'])
 			})
 			.state('championships', {
 				url: '/championships',
+				resolve: {
+					championshipsArr: ['fetchingService',
+						function (fetchingService) {
+							return fetchingService.all();
+						}]
+				},
 				views: {
 					'list': {
 						templateUrl: 'templates/championships.html',
