@@ -30,6 +30,7 @@ First Angular application - Football info.
  - add phone screen supporting
 
  - get it worked from dist folder (done)
+ - add search & sorting for teams
 
  - refactoring
  - add tests
