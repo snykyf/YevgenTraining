@@ -3,7 +3,6 @@ angular.module('footballInfo')
 		'$scope', '$http', 'championshipsArr',
 		function ($scope, $http, championshipsArr) {
 			'use strict';
-
 			$scope.championships = championshipsArr;
 		}
 	]);

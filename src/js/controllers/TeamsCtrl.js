@@ -1,14 +1,8 @@
 angular.module('footballInfo')
 	.controller('TeamsCtrl', [
-		'$scope', '$http',
-		function ($scope, $http) {
+		'$scope', 'teamsArr',
+		function ($scope, teamsArr) {
 			'use strict';
-
-			var url = 'http://footballbet.com.ua/api/teams/';
-			$http
-				.get(url)
-				.success(function (data) {
-					$scope.teams = data.result;
-				});
+			$scope.teams = teamsArr;
 		}
 	]);

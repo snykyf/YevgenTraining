@@ -3,7 +3,6 @@ angular.module('footballInfo')
 		'$scope', '$stateParams', 'fetchingService',
 		function ($scope, $stateParams, fetchingService) {
 			'use strict';
-
-			$scope.championship = fetchingService.get($stateParams.id);
+			$scope.championship = fetchingService.getChampionship($stateParams.id);
 		}
 	]);

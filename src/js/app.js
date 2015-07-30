@@ -19,7 +19,7 @@ angular.module('footballInfo', ['ui.router'])
 				resolve: {
 					championshipsArr: ['fetchingService',
 						function (fetchingService) {
-							return fetchingService.all();
+							return fetchingService.allChampionships();
 						}]
 				},
 				views: {
@@ -38,26 +38,14 @@ angular.module('footballInfo', ['ui.router'])
 					}
 				}
 			})
-			.state('matches', {
-				url: '/matches',
-				views: {
-					'list': {
-						templateUrl: 'templates/matches.html',
-						controller: 'MatchesCtrl'
-					}
-				}
-			})
-			.state('matches.detailed', {
-				url: '/:id',
-				views: {
-					'detailed': {
-						templateUrl: 'templates/match-detailed.html',
-						controller: 'DetailedMatchCtrl'
-					}
-				}
-			})
 			.state('teams', {
 				url: '/teams',
+				resolve: {
+					teamsArr: ['fetchingService',
+						function (fetchingService) {
+							return fetchingService.allTeams();
+						}]
+				},
 				views: {
 					'list': {
 						templateUrl: 'templates/teams.html',
@@ -71,6 +59,30 @@ angular.module('footballInfo', ['ui.router'])
 					'detailed': {
 						templateUrl: 'templates/team-detailed.html',
 						controller: 'DetailedTeamCtrl'
+					}
+				}
+			})
+			.state('matches', {
+				url: '/matches',
+				resolve: {
+					matchesArr: ['fetchingService',
+						function (fetchingService) {
+							return fetchingService.allMatches();
+						}]
+				},
+				views: {
+					'list': {
+						templateUrl: 'templates/matches.html',
+						controller: 'MatchesCtrl'
+					}
+				}
+			})
+			.state('matches.detailed', {
+				url: '/:id',
+				views: {
+					'detailed': {
+						templateUrl: 'templates/match-detailed.html',
+						controller: 'DetailedMatchCtrl'
 					}
 				}
 			});
