@@ -1,8 +1,8 @@
 angular.module('footballInfo')
 	.controller('DetailedChampionshipCtrl', [
-		'$scope', '$stateParams', 'teamsArr',
-		function ($scope, $stateParams, teamsArr) {
+		'$scope', 'championshipTeamsArr',
+		function ($scope, championshipTeamsArr) {
 			'use strict';
-			$scope.championshipTeams = teamsArr;
+			$scope.championshipTeams = championshipTeamsArr;
 		}
 	]);

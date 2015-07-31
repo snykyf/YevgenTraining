@@ -32,7 +32,7 @@ angular.module('footballInfo', ['ui.router'])
 			.state('championships.detailed', {
 				url: '/:id',
 				resolve: {
-					teamsArr: ['fetchingService', '$stateParams',
+						championshipTeamsArr: ['fetchingService', '$stateParams',
 						function (fetchingService, $stateParams) {
 							return fetchingService.getChampionshipTeams($stateParams.id);
 						}]

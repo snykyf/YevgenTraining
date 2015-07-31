@@ -55,6 +55,14 @@ angular.module('footballInfo')
                 });
 		};
 
+		factory.getChampionshipTeams = function (id) {
+			return this
+				.allTeams()
+				.then(function (teamsArr) {
+					return teamsArr[id];
+				});
+		};
+
 		factory.allTeams = function () {
 			return fetchAllItems(teams)
 				.then(function (teamsArr){
