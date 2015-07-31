@@ -3,7 +3,6 @@ angular.module('footballInfo')
 		'$scope',
 		function ($scope) {
 			'use strict';
-
 			$scope.dashboard  = "Hi, it's Dashboard page";
 		}
 	]);

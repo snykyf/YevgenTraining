@@ -31,6 +31,12 @@ angular.module('footballInfo', ['ui.router'])
 			})
 			.state('championships.detailed', {
 				url: '/:id',
+				resolve: {
+					teamsArr: ['fetchingService', '$stateParams',
+						function (fetchingService, $stateParams) {
+							return fetchingService.getChampionshipTeams($stateParams.id);
+						}]
+				},
 				views: {
 					'detailed': {
 						templateUrl: 'templates/championship-detailed.html',
@@ -39,20 +45,24 @@ angular.module('footballInfo', ['ui.router'])
 				}
 			})
 			.state('teams', {
-				url: '/teams',
-				resolve: {
-					teamsArr: ['fetchingService',
-						function (fetchingService) {
-							return fetchingService.allTeams();
-						}]
-				},
-				views: {
-					'list': {
-						templateUrl: 'templates/teams.html',
-						controller: 'TeamsCtrl'
-					}
-				}
-			})
+                url: '/teams',
+                resolve: {
+                    teamsArr: ['fetchingService',
+                        function (fetchingService) {
+                            return fetchingService.allTeams();
+                        }],
+					championshipsArr: ['fetchingService',
+                        function (fetchingService) {
+                            return fetchingService.allChampionships();
+                        }]
+                },
+                views: {
+                    'list': {
+                        templateUrl: 'templates/teams.html',
+                        controller: 'TeamsCtrl'
+                    }
+                }
+            })
 			.state('teams.detailed', {
 				url: '/:id',
 				views: {
