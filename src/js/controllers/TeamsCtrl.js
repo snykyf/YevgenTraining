@@ -1,8 +1,9 @@
 angular.module('footballInfo')
 	.controller('TeamsCtrl', [
-		'$scope', 'teamsArr',
-		function ($scope, teamsArr) {
+		'$scope', 'teamsArr', 'fetchingService',
+		function ($scope, teamsArr, fetchingService) {
 			'use strict';
-			$scope.teams = teamsArr;
+
+            $scope.teams = teamsArr;
 		}
 	]);
