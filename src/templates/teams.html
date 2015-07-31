@@ -1,8 +1,9 @@
 <!--TODO: temporary html to see if everything working-->
+<!--TODO: add maping for getChampionship-->
 Search teams <input type="text" ng-model="search"/>
 <a ng-click="setSortingOrder()">Change sorting order</a>
 <ul class="list">
-    <li ng-repeat="(countryId, countryTeams) in teams">
+    <li ng-repeat="(countryId, countryTeams) in teams" ng-if="(countryTeams | filter:search).length">
 		<a ui-sref="championships.detailed({id: countryId})">
 			{{getChampionship(countryId).name}}
 		</a>

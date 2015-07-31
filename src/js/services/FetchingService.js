@@ -3,6 +3,7 @@ angular.module('footballInfo')
 	.factory('fetchingService', ['$http', function ($http) {
 		'use strict';
 
+		//TODO: remove data
 		//config objects
 		var championships = {
 			url: 'http://footballbet.com.ua/api/championships/',
@@ -25,15 +26,16 @@ angular.module('footballInfo')
 		//helper methods
 		function fetchAllItems (store) {
             return $http
-                .get(store.url)
+                .get(store.url, {cache: true})
                 .then(function (resp) {
                     return resp.data.result;
                 });
         }
 
 		function findById (store, id, idName) {
-			var store = store.data || store;
+			store = store.data || store;
 
+			//TODO: add break
 			return store.filter(function (item) {
 				return item[idName] === id;
 			})[0];

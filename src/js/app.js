@@ -4,6 +4,7 @@ angular.module('footballInfo', ['ui.router'])
 
 		$urlRouterProvider.otherwise("/dashboard");
 
+		//TODO: move resolve
 		$stateProvider
 			.state('dashboard', {
 				url: '/dashboard',
