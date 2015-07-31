@@ -3,7 +3,7 @@
 	<li ng-repeat="championship in championships">
 		<a ui-sref="championships.detailed({id: championship.id_championship})">{{championship
 			.name}}
-			<img ng-src="{{emblemBaseUrl}}{{championship.image}}">
+			<img ng-src="{{emblemBaseUrl + championship.image}}">
 		</a>
 	</li>
 </ul>

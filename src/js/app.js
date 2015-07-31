@@ -46,16 +46,16 @@ angular.module('footballInfo', ['ui.router'])
 			})
 			.state('teams', {
                 url: '/teams',
-                //resolve: {
-                //    teamsArr: ['fetchingService',
-                //        function (fetchingService) {
-                //            return fetchingService.allTeams()
-                //        }],
-                //    championships: ['fetchingService',
-                //        function (fetchingService) {
-                //            return fetchingService.allChampionships();
-                //        }]
-                //},
+                resolve: {
+                    teamsArr: ['fetchingService',
+                        function (fetchingService) {
+                            return fetchingService.allTeams();
+                        }],
+					championshipsArr: ['fetchingService',
+                        function (fetchingService) {
+                            return fetchingService.allChampionships();
+                        }]
+                },
                 views: {
                     'list': {
                         templateUrl: 'templates/teams.html',

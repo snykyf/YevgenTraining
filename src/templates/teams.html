@@ -2,10 +2,14 @@
 Search teams <input type="text" ng-model="search"/>
 <ul class="list">
     <li ng-repeat="(countryId, countryTeams) in teams">
-        {{countryId}}
+		<a ui-sref="championships.detailed({id: countryId})">
+			{{getChampionship(countryId).name}}
+		</a>
         <ul>
             <li ng-repeat="team in countryTeams | filter:search">
-                <a ui-sref="teams.detailed({id: team.id_teams})">{{team.name}}</a>
+                <a ui-sref="teams.detailed({id: team.id_teams})">{{team.name}}
+					<img ng-src="{{emblemBaseUrl + team.emblema}}" >
+				</a>
             </li>
         </ul>
     </li>
