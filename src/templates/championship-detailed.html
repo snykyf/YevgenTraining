@@ -1,6 +1,6 @@
 <!--TODO: temporary html to see if everything working-->
-<div>
-	name: {{championship.name}} <br/>
-	sename: {{championship.sename}}  <br/>
-	title: {{championship.title}}  <br/>
-</div>
+<ul class="list">
+	<li ng-repeat="team in championshipTeams">
+		<a ui-sref="teams.detailed({id: team.id_teams})">{{team.name}}</a>
+	</li>
+</ul>
