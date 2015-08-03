@@ -3,18 +3,15 @@ angular.module('footballInfo')
 	.factory('fetchingService', ['$http', function ($http) {
 		'use strict';
 
-		//TODO: remove data
 		//config objects
 		var championships = {
 			url: 'http://footballbet.com.ua/api/championships/',
-			idName: 'id_championship',
-			data: null
+			idName: 'id_championship'
 		};
 
 		var teams = {
 			url: 'http://footballbet.com.ua/api/teams/',
-			idName: 'id_teams',
-			data: {}
+			idName: 'id_teams'
 		};
 
 		var matches = {
@@ -69,7 +66,8 @@ angular.module('footballInfo')
 			return fetchAllItems(teams)
 				.then(function (teamsArr){
 					// get unique array of id_championship
-					var championshipsId = {};
+					var championshipsId = {},
+						teams;
 
 					teamsArr.forEach(function (team) {
 						championshipsId[team.id_championship] = null;
@@ -78,12 +76,12 @@ angular.module('footballInfo')
 
 					// sort teams by county
 					championshipsId.forEach(function (championshipId) {
-						teams.data[championshipId] = teamsArr.filter(function (team) {
+						teams[championshipId] = teamsArr.filter(function (team) {
 							return team.id_championship == championshipId;
 						});
 					});
 
-					return teams.data;
+					return teams;
 			});
 		};
 

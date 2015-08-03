@@ -14,6 +14,7 @@ angular.module('footballInfo')
 				debugger;
 				fetchingService.allChampionships();
 				//TODO: try to find out how to call service method here
+				//chrome issue, you can use it
 				return this.championships.filter(function (championship) {
 					return championship['id_championship'] === id;
 				})[0];
