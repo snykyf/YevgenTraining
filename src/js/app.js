@@ -18,9 +18,9 @@ angular.module('footballInfo', ['ui.router'])
 			.state('championships', {
 				url: '/championships',
 				resolve: {
-					championshipsArr: ['fetchingService',
-						function (fetchingService) {
-							return fetchingService.allChampionships();
+					championshipsArr: ['fetchingDataService',
+						function (fetchingDataService) {
+							return fetchingDataService.getAllChampionships();
 						}]
 				},
 				views: {
@@ -33,9 +33,9 @@ angular.module('footballInfo', ['ui.router'])
 			.state('championships.detailed', {
 				url: '/:id',
 				resolve: {
-						championshipTeamsArr: ['fetchingService', '$stateParams',
-						function (fetchingService, $stateParams) {
-							return fetchingService.getChampionshipTeams($stateParams.id);
+						championshipTeamsArr: ['fetchingDataService', '$stateParams',
+						function (fetchingDataService, $stateParams) {
+							return fetchingDataService.getChampionshipTeams($stateParams.id);
 						}]
 				},
 				views: {
@@ -48,13 +48,9 @@ angular.module('footballInfo', ['ui.router'])
 			.state('teams', {
                 url: '/teams',
                 resolve: {
-                    teamsArr: ['fetchingService',
-                        function (fetchingService) {
-                            return fetchingService.allTeams();
-                        }],
-					championshipsArr: ['fetchingService',
-                        function (fetchingService) {
-                            return fetchingService.allChampionships();
+                    teamsArr: ['fetchingDataService',
+                        function (fetchingDataService) {
+                            return fetchingDataService.getAllTeams();
                         }]
                 },
                 views: {
@@ -76,9 +72,9 @@ angular.module('footballInfo', ['ui.router'])
 			.state('matches', {
 				url: '/matches',
 				resolve: {
-					matchesArr: ['fetchingService',
-						function (fetchingService) {
-							return fetchingService.allMatches();
+					matchesArr: ['fetchingDataService',
+						function (fetchingDataService) {
+							return fetchingDataService.getAllMatches();
 						}]
 				},
 				views: {

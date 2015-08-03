@@ -1,6 +1,6 @@
 // A RESTful factory for retrieving data
 angular.module('footballInfo')
-	.factory('fetchingService', ['$http', function ($http) {
+	.factory('fetchingDataService', ['$http', function ($http) {
 		'use strict';
 
 		//config objects
@@ -40,13 +40,13 @@ angular.module('footballInfo')
 		//service
 		var factory = {};
 
-		factory.allChampionships = function () {
+		factory.getAllChampionships = function () {
 			return fetchAllItems(championships);
 		};
 
 		factory.getChampionship = function (id) {
 			return this
-                .allChampionships()
+                .getAllChampionships()
                 .then(function (championshipsArr) {
                     findById(championshipsArr, id);
                 });
@@ -54,13 +54,13 @@ angular.module('footballInfo')
 
 		factory.getChampionshipTeams = function (id) {
 			return this
-				.allTeams()
+				.getAllTeams()
 				.then(function (teamsArr) {
 					return teamsArr[id];
 				});
 		};
 
-		factory.allTeams = function () {
+		factory.getAllTeams = function () {
 			return fetchAllItems(teams)
 				.then(function (teamsArr) {
 					// get unique array of id_championship
@@ -85,7 +85,7 @@ angular.module('footballInfo')
 
 		factory.getTeam = function (id) {
 			var result;
-            this.allTeams().then(function (teamsArr) {
+            this.getAllTeams().then(function (teamsArr) {
                 for (var index in teams.data) {
                     result = findById(teamsArr[index], id, teams.idName);
 
@@ -98,7 +98,7 @@ angular.module('footballInfo')
             });
 		};
 
-		factory.allMatches = function () {
+		factory.getAllMatches = function () {
 			return fetchAllItems(matches);
 		};
 
