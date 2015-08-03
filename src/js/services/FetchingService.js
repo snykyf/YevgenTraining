@@ -16,8 +16,7 @@ angular.module('footballInfo')
 
 		var matches = {
 			url: 'http://footballbet.com.ua/api/matches/',
-			idName: 'idMatch',
-			data: null
+			idName: 'idMatch'
 		};
 
 		//helper methods
@@ -42,14 +41,13 @@ angular.module('footballInfo')
 		var factory = {};
 
 		factory.allChampionships = function () {
-			return championships.data = fetchAllItems(championships);
+			return fetchAllItems(championships);
 		};
 
 		factory.getChampionship = function (id) {
 			return this
                 .allChampionships()
                 .then(function (championshipsArr) {
-                    debugger;
                     findById(championshipsArr, id);
                 });
 		};
@@ -64,10 +62,10 @@ angular.module('footballInfo')
 
 		factory.allTeams = function () {
 			return fetchAllItems(teams)
-				.then(function (teamsArr){
+				.then(function (teamsArr) {
 					// get unique array of id_championship
 					var championshipsId = {},
-						teams;
+						teams = [];
 
 					teamsArr.forEach(function (team) {
 						championshipsId[team.id_championship] = null;
@@ -87,19 +85,21 @@ angular.module('footballInfo')
 
 		factory.getTeam = function (id) {
 			var result;
-			for (var index in teams.data) {
-				result = findById(teams.data[index], id, teams.idName);
+            this.allTeams().then(function (teamsArr) {
+                for (var index in teams.data) {
+                    result = findById(teamsArr[index], id, teams.idName);
 
-				if (result) {
-					break;
-				}
-			}
+                    if (result) {
+                        break;
+                    }
+                }
 
-			return result;
+                return result;
+            });
 		};
 
 		factory.allMatches = function () {
-			return matches.data = fetchAllItems(matches);
+			return fetchAllItems(matches);
 		};
 
 		factory.getMatch = function (id) {

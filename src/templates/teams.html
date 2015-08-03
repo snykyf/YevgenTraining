@@ -5,7 +5,7 @@ Search teams <input type="text" ng-model="search"/>
 <ul class="list">
     <li ng-repeat="(countryId, countryTeams) in teams" ng-if="(countryTeams | filter:search).length">
 		<a ui-sref="championships.detailed({id: countryId})">
-			{{getChampionship(countryId).name}}
+			TODO: add championship name here
 		</a>
         <ul>
             <li ng-repeat="team in countryTeams | filter:search | orderBy: team.name:sortingOrder">
