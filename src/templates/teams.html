@@ -1,14 +1,11 @@
-<!--TODO: temporary html to see if everything working-->
-<!--TODO: add maping for getChampionship-->
 Search teams <input type="text" ng-model="search"/>
 <a ng-click="setSortingOrder()">Change sorting order</a>
 <ul class="list">
-    <li ng-repeat="(countryId, countryTeams) in teams" ng-if="(countryTeams | filter:search).length">
-		<a ui-sref="championships.detailed({id: countryId})">
-			TODO: add championship name here
+    <li ng-repeat="championship in championships" ng-if="(championship.teams | filter:search).length">
+		<a ui-sref="championships.detailed({id: championship.id_championship})"> {{championship.name}}
 		</a>
         <ul>
-            <li ng-repeat="team in countryTeams | filter:search | orderBy: team.name:sortingOrder">
+            <li ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder">
                 <a ui-sref="teams.detailed({id: team.id_teams})">{{team.name}}
 					<img ng-src="{{emblemBaseUrl + team.emblema}}" >
 				</a>

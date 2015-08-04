@@ -1,7 +1,7 @@
 // A RESTful factory for retrieving data
 angular.module('footballInfo')
-	.factory('fetchingDataService', ['$http',
-        function ($http) {
+	.factory('fetchingDataService', ['$http', '$q',
+        function ($http, $q) {
             'use strict';
 
             //config objects
@@ -21,9 +21,9 @@ angular.module('footballInfo')
             };
 
             //helper methods
-            function fetchAllItems (store) {
+            function fetchAllItems (store, shouldNotCache) {
                 return $http
-                    .get(store.url, {cache: true})
+                    .get(store.url, {cache: !shouldNotCache})
                     .then(function (resp) {
                         return resp.data.result;
                     });
@@ -35,6 +35,7 @@ angular.module('footballInfo')
                 for (var key in store ) {
                     if (store[key][idName] === id) {
                         result = store[key];
+                        break;
                     }
                 }
 
@@ -45,59 +46,50 @@ angular.module('footballInfo')
             var factory = {};
 
             factory.getAllChampionships = function () {
-                return fetchAllItems(championships);
+                var promises = [];
+                promises.push(fetchAllItems(championships));
+                promises.push(fetchAllItems(teams));
+
+                return $q
+                    .all(promises)
+                    .then(function (data) {
+                        var championshipsArr = data[0],
+                            teamsArr = data[1],
+                            championships = {}; //mapped by id
+
+                        championshipsArr.forEach(function (championship) {
+                            championship.teams = teamsArr.filter(function (team) {
+                                return team.id_championship == championship.id_championship;
+                            });
+                            championships[championship.id_championship] = championship;
+                        });
+
+                        return championships;
+                    });
             };
 
             factory.getChampionship = function (id) {
                 return this
-                    .getAllTeams()
-                    .then(function (teamsArr) {
-                        return teamsArr[id];
+                    .getAllChampionships()
+                    .then(function (championshipsObj) {
+                        return championshipsObj[id]['teams'];
                     });
             };
 
             factory.getAllTeams = function () {
-                return fetchAllItems(teams)
-                    .then(function (teamsArr) {
-                        // get unique array of id_championship
-                        var championshipsId = {},
-                            teams = [];
-
-                        teamsArr.forEach(function (team) {
-                            championshipsId[team.id_championship] = null;
-                        });
-                        championshipsId = Object.keys(championshipsId);
-
-                        // sort teams by county
-                        championshipsId.forEach(function (championshipId) {
-                            teams[championshipId] = teamsArr.filter(function (team) {
-                                return team.id_championship == championshipId;
-                            });
-                        });
-
-                        return teams;
-                });
+                return fetchAllItems(teams);
             };
 
             factory.getTeam = function (id) {
                 return this
                     .getAllTeams()
                     .then(function (teamsArr) {
-                        var result;
-
-                        for (var index in teamsArr) {
-                            result = findById(teamsArr[index], id, teams.idName);
-                            if (result) {
-                                break;
-                            }
-                        }
-
-                        return result;
+                        return findById(teamsArr, id, teams.idName);
                     });
             };
 
             factory.getAllMatches = function () {
-                return fetchAllItems(matches);
+                return fetchAllItems(matches, true);
             };
 
             factory.getMatch = function (id) {

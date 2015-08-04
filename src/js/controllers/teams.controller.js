@@ -8,9 +8,9 @@ angular.module('footballInfo')
 			$scope.sortingOrder = false;
 
             fetchingDataService
-                .getAllTeams()
-                .then(function (teamsArr) {
-                    $scope.teams = teamsArr;
+                .getAllChampionships()
+                .then(function (championshipsObj) {
+                    $scope.championships = championshipsObj;
                 });
 
 			$scope.setSortingOrder = function () {
