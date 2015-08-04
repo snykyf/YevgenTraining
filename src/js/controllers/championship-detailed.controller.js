@@ -1,8 +1,13 @@
 angular.module('footballInfo')
 	.controller('DetailedChampionshipCtrl', [
-		'$scope', 'championshipTeamsArr',
-		function ($scope, championshipTeamsArr) {
+		'$scope', '$stateParams', 'fetchingDataService',
+		function ($scope, $stateParams, fetchingDataService) {
 			'use strict';
-			$scope.championshipTeams = championshipTeamsArr;
-		}
+
+            fetchingDataService
+                .getChampionship($stateParams.id)
+                .then(function (teamsArr) {
+                    $scope.championshipTeams = teamsArr;
+                });
+        }
 	]);

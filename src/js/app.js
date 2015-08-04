@@ -4,7 +4,6 @@ angular.module('footballInfo', ['ui.router'])
 
 		$urlRouterProvider.otherwise("/dashboard");
 
-		//TODO: move resolve
 		$stateProvider
 			.state('dashboard', {
 				url: '/dashboard',
@@ -17,12 +16,6 @@ angular.module('footballInfo', ['ui.router'])
 			})
 			.state('championships', {
 				url: '/championships',
-				resolve: {
-					championshipsArr: ['fetchingDataService',
-						function (fetchingDataService) {
-							return fetchingDataService.getAllChampionships();
-						}]
-				},
 				views: {
 					'list': {
 						templateUrl: 'templates/championships.html',
@@ -32,12 +25,6 @@ angular.module('footballInfo', ['ui.router'])
 			})
 			.state('championships.detailed', {
 				url: '/:id',
-				resolve: {
-						championshipTeamsArr: ['fetchingDataService', '$stateParams',
-						function (fetchingDataService, $stateParams) {
-							return fetchingDataService.getChampionshipTeams($stateParams.id);
-						}]
-				},
 				views: {
 					'detailed': {
 						templateUrl: 'templates/championship-detailed.html',
@@ -47,12 +34,6 @@ angular.module('footballInfo', ['ui.router'])
 			})
 			.state('teams', {
                 url: '/teams',
-                resolve: {
-                    teamsArr: ['fetchingDataService',
-                        function (fetchingDataService) {
-                            return fetchingDataService.getAllTeams();
-                        }]
-                },
                 views: {
                     'list': {
                         templateUrl: 'templates/teams.html',
@@ -71,12 +52,6 @@ angular.module('footballInfo', ['ui.router'])
 			})
 			.state('matches', {
 				url: '/matches',
-				resolve: {
-					matchesArr: ['fetchingDataService',
-						function (fetchingDataService) {
-							return fetchingDataService.getAllMatches();
-						}]
-				},
 				views: {
 					'list': {
 						templateUrl: 'templates/matches.html',

@@ -1,8 +1,13 @@
 angular.module('footballInfo')
 	.controller('MatchesCtrl', [
-		'$scope', 'matchesArr',
-		function ($scope, matchesArr) {
+		'$scope', 'fetchingDataService',
+		function ($scope, fetchingDataService) {
 			'use strict';
-			$scope.matches = matchesArr;
+
+            fetchingDataService
+                .getAllMatches()
+                .then(function (matchesArr) {
+                    $scope.matches = matchesArr;
+                });
 		}
 	]);

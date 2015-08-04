@@ -3,6 +3,11 @@ angular.module('footballInfo')
 		'$scope', '$stateParams', 'fetchingDataService',
 		function ($scope, $stateParams, fetchingDataService) {
 			'use strict';
-			$scope.match = fetchingDataService.getMatch($stateParams.id);
+
+			fetchingDataService
+                .getMatch($stateParams.id)
+                .then(function (match) {
+                    $scope.match = match;
+                });
 		}
 	]);

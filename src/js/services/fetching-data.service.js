@@ -46,14 +46,6 @@ angular.module('footballInfo')
 
 		factory.getChampionship = function (id) {
 			return this
-                .getAllChampionships()
-                .then(function (championshipsArr) {
-                    findById(championshipsArr, id);
-                });
-		};
-
-		factory.getChampionshipTeams = function (id) {
-			return this
 				.getAllTeams()
 				.then(function (teamsArr) {
 					return teamsArr[id];
@@ -85,16 +77,15 @@ angular.module('footballInfo')
 
 		factory.getTeam = function (id) {
 			var result;
-            this.getAllTeams().then(function (teamsArr) {
-                for (var index in teams.data) {
-                    result = findById(teamsArr[index], id, teams.idName);
-
-                    if (result) {
-                        break;
+            this.getAllTeams()
+                .then(function (teamsArr) {
+                    for (var index in teamsArr) {
+                        result = findById(teamsArr[index], id, teams.idName);
+                        if (result) {
+                            break;
+                        }
                     }
-                }
-
-                return result;
+                    return result;
             });
 		};
 
@@ -103,8 +94,13 @@ angular.module('footballInfo')
 		};
 
 		factory.getMatch = function (id) {
-			return findById(matches, id);
-		};
+			return this
+                .getAllMatches()
+                .then(function (matchesArr) {
+                    debugger;
+                    return findById(matchesArr, id, matches.idName);
+                });
+        };
 
 		return factory;
 	}]);
