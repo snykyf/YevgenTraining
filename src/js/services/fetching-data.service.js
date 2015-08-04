@@ -1,7 +1,7 @@
 // A RESTful factory for retrieving data
 angular.module('footballInfo')
-	.factory('fetchingDataService', ['$http', '$q',
-        function ($http, $q) {
+	.factory('fetchingDataService', ['$http',
+        function ($http) {
             'use strict';
 
             //config objects
@@ -30,12 +30,15 @@ angular.module('footballInfo')
             }
 
             function findById (store, id, idName) {
-                store = store.data || store;
+                var result;
 
-                //TODO: add break
-                return store.filter(function (item) {
-                    return item[idName] === id;
-                })[0];
+                for (var key in store ) {
+                    if (store[key][idName] === id) {
+                        result = store[key];
+                    }
+                }
+
+                return result;
             }
 
             //service
