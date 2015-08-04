@@ -1,10 +1,10 @@
 angular.module('footballInfo')
 	.controller('TeamsCtrl', [
-		'$scope', 'fetchingDataService',
-		function ($scope, fetchingDataService) {
+		'$scope', 'fetchingDataService', 'constants',
+		function ($scope, fetchingDataService, constants) {
 			'use strict';
 
-			$scope.emblemBaseUrl = 'http://footballbet.com.ua/teams/embl/';
+			$scope.emblemUrl = constants.teams.emblemUrl;
 			$scope.sortingOrder = false;
 
             fetchingDataService

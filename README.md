@@ -13,8 +13,8 @@ First Angular application - Football info.
  - the same + custom directive
 
  - add Teams view (done)
- - add search to view
- - add sorting
+ - add search to view (done)
+ - add sorting (done)
  - add detailed view on click (done)
  - the same + custom directive
 
@@ -23,14 +23,15 @@ First Angular application - Football info.
  - the same + custom directive
 
  - add Dashboard view
- - move getting data to service
+ - move getting data to service (done)
 
  - add bootstrap
  - add gulp task (done)
  - add phone screen supporting
 
  - get it worked from dist folder (done)
- - add search & sorting for teams
+ - add search & sorting for teams (done)
 
  - refactoring
+ - check code style https://github.com/toddmotto/angularjs-styleguide
  - add tests

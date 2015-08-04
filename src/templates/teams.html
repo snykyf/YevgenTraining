@@ -6,7 +6,7 @@ Search teams <input type="text" ng-model="search"/>
         <ul>
             <li ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder">
                 <a ui-sref="teams.detailed({id: team.id_teams})">{{::team.name}}
-					<img ng-src="{{emblemBaseUrl + team.emblema}}" >
+					<img ng-src="{{emblemUrl + team.emblema}}">
 				</a>
             </li>
         </ul>

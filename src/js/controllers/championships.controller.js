@@ -1,16 +1,15 @@
 angular.module('footballInfo')
 	.controller('ChampionshipsCtrl', [
-		'$scope', 'fetchingDataService',
-		function ($scope, fetchingDataService) {
+		'$scope', 'fetchingDataService', 'constants',
+		function ($scope, fetchingDataService, constants) {
 			'use strict';
 
-			//TODO: move urls to constant service
             fetchingDataService
                 .getAllChampionships()
                 .then(function (championshipsArr) {
                     $scope.championships = championshipsArr;
                 });
 
-			$scope.emblemBaseUrl = 'http://footballbet.com.ua/table/embl/';
+			$scope.emblemUrl = constants.championships.emblemUrl;
 		}
 	]);
