@@ -1,7 +1,7 @@
 <ul class="list">
-	<li ng-repeat="championship in championships">
+	<li ng-repeat="championship in championships track by $index">
 		<a ui-sref="championships.detailed({id: championship.id_championship})">
-			{{championship.name}}
+			{{::championship.name}}
 			<img ng-src="{{emblemBaseUrl + championship.image}}">
 		</a>
 	</li>
