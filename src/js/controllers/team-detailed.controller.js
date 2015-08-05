@@ -1,8 +1,9 @@
 angular.module('footballInfo')
 	.controller('DetailedTeamCtrl', [
-		'$scope', '$stateParams', 'fetchingDataService',
-		function ($scope, $stateParams, fetchingDataService) {
+		'$scope', '$stateParams', 'fetchingDataService', 'constants',
+		function ($scope, $stateParams, fetchingDataService, constants) {
 			'use strict';
+			$scope.emblemUrl = constants.teams.emblemUrl;
 
             fetchingDataService
                 .getTeam($stateParams.id)

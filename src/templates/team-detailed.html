@@ -1,5 +1,11 @@
 <div>
-	name: {{::team.name}}<br/>
-	second_name: {{::team.second_name}}<br/>
-	id_championship: {{::team.id_championship}}
+	<img ng-src="{{emblemUrl + team.emblema}}">
+	<p><b>name: </b>{{::team.name}}</p>
+	<p><b>city: </b>{{::team.city}}</p>
+	<p><b>coach: </b>{{::team.coach}}</p>
+	<p><b>foundation year: </b>{{::team.foundation_year}}</p>
+	<p><b>home stadion: </b>{{::team.home_stadion}}</p>
+	<p><b>off site: </b><a href="{{::team.off_site}}" target="_blank">{{::team.off_site}}</a></p>
+	<p><b>president: </b>{{::team.president}}</p>
+	<p ng-if="team.second_name"><b>second_name: </b>{{::team.second_name}}</p>
 </div>

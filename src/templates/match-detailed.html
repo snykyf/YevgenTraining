@@ -1,9 +1,12 @@
 <div>
-	country: {{::match.country}} <br/>
-	date: {{::match.date}} <br/>
-	firstTeam: {{::match.firstTeam}} <br/>
-	firstTeamGoal: {{::match.firstTeamGoal}} <br/>
-	secondTeam: {{::match.secondTeam}} <br/>
-	secondTeamGoal: {{::match.secondTeamGoal}} <br/>
-	title: {{::match.title}} <br/>
+	<img ng-src="{{flagUrl+ match.image}}"/>
+	<p>
+		<a ui-sref="teams.detailed({id: match.idFirstTeam})">{{::match.firstTeam}}</a>
+		<span>-</span>
+		<a ui-sref="teams.detailed({id: match.idSecondTeam})">{{::match.secondTeam}}</a>
+		<span>, {{::match.firstTeamGoal}} - {{::match.secondTeamGoal}}</span>
+	</p>
+	<p>
+		<span>{{::match.title}}, {{::match.date}}</span>
+	</p>
 </div>

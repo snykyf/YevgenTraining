@@ -4,10 +4,8 @@ Search teams <input type="text" ng-model="search"/>
     <li ng-repeat="championship in championships track by $index" ng-if="(championship.teams | filter:search).length">
 		<a ui-sref="championships.detailed({id: championship.id_championship})"> {{::championship.name}}</a>
         <ul>
-            <li ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder">
-                <a ui-sref="teams.detailed({id: team.id_teams})">{{::team.name}}
-					<img ng-src="{{emblemUrl + team.emblema}}">
-				</a>
+            <li ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder" ng-if="team.name">
+                <a ui-sref="teams.detailed({id: team.id_teams})">{{::team.name}}</a>
             </li>
         </ul>
     </li>

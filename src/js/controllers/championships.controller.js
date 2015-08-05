@@ -1,7 +1,7 @@
 angular.module('footballInfo')
 	.controller('ChampionshipsCtrl', [
-		'$scope', 'fetchingDataService', 'constants',
-		function ($scope, fetchingDataService, constants) {
+		'$scope', 'fetchingDataService',
+		function ($scope, fetchingDataService) {
 			'use strict';
 
             fetchingDataService
@@ -9,7 +9,5 @@ angular.module('footballInfo')
                 .then(function (championshipsArr) {
                     $scope.championships = championshipsArr;
                 });
-
-			$scope.emblemUrl = constants.championships.emblemUrl;
 		}
 	]);

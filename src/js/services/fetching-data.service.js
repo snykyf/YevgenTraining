@@ -7,7 +7,7 @@ angular.module('footballInfo')
             //helper methods
             function fetchAllItems (config) {
                 return $http
-                    .get(config.url, {cache: !config.shouldNotCache})
+                    .get(config.url, {cache: config.shouldCache})
                     .then(function (resp) {
                         return resp.data.result;
                     });
@@ -56,7 +56,7 @@ angular.module('footballInfo')
                 return this
                     .getAllChampionships()
                     .then(function (championshipsObj) {
-                        return championshipsObj[id]['teams'];
+                        return championshipsObj[id];
                     });
             };
 
