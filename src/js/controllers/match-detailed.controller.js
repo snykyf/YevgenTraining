@@ -7,9 +7,9 @@ angular.module('footballInfo')
 			$scope.flagUrl = constants.matches.flagUrl;
 
 			fetchingDataService
-                .getMatch($stateParams.id)
-                .then(function (match) {
-                    $scope.match = match;
-                });
+				.getMatch($stateParams.id)
+				.then(function (match) {
+					$scope.match = match;
+				});
 		}
 	]);

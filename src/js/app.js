@@ -33,14 +33,14 @@ angular.module('footballInfo', ['ui.router'])
 				}
 			})
 			.state('teams', {
-                url: '/teams',
-                views: {
-                    'list': {
-                        templateUrl: 'templates/teams.html',
-                        controller: 'TeamsCtrl'
-                    }
-                }
-            })
+				url: '/teams',
+				views: {
+					'list': {
+						templateUrl: 'templates/teams.html',
+						controller: 'TeamsCtrl'
+					}
+				}
+			})
 			.state('teams.detailed', {
 				url: '/:id',
 				views: {

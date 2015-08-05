@@ -1,13 +1,13 @@
 Search teams <input type="text" ng-model="search"/>
 <a ng-click="setSortingOrder()">Change sorting order</a>
 <ul class="list">
-    <li ng-repeat="championship in championships track by $index" ng-if="(championship.teams | filter:search).length">
+	<li ng-repeat="championship in championships track by $index" ng-if="(championship.teams | filter:search).length">
 		<a ui-sref="championships.detailed({id: championship.id_championship})"> {{::championship.name}}</a>
-        <ul>
-            <li ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder" ng-if="team.name">
-                <a ui-sref="teams.detailed({id: team.id_teams})">{{::team.name}}</a>
-            </li>
-        </ul>
-    </li>
+		<ul>
+			<li ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder" ng-if="team.name">
+				<a ui-sref="teams.detailed({id: team.id_teams})">{{::team.name}}</a>
+			</li>
+		</ul>
+	</li>
 </ul>
 <div class="detailed" ui-view="detailed"></div>

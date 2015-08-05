@@ -4,10 +4,10 @@ angular.module('footballInfo')
 		function ($scope, fetchingDataService) {
 			'use strict';
 
-            fetchingDataService
-                .getAllMatches()
-                .then(function (matchesArr) {
-                    $scope.matches = matchesArr;
-                });
+			fetchingDataService
+				.getAllMatches()
+				.then(function (matchesArr) {
+					$scope.matches = matchesArr;
+				});
 		}
 	]);

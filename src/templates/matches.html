@@ -1,8 +1,6 @@
 <ul class="list">
 	<li ng-repeat="match in matches track by $index">
-		<a ui-sref="matches.detailed({id: match.idMatch})">
-			{{::match.firstTeam }} - {{::match.secondTeam}}
-        </a>
+		<a ui-sref="matches.detailed({id: match.idMatch})">{{::match.firstTeam }} - {{::match.secondTeam}}</a>
 	</li>
 </ul>
 <div class="detailed" ui-view="detailed"></div>

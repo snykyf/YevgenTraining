@@ -7,11 +7,11 @@ angular.module('footballInfo')
 			$scope.emblemUrl = constants.teams.emblemUrl;
 			$scope.sortingOrder = false;
 
-            fetchingDataService
-                .getAllChampionships()
-                .then(function (championshipsObj) {
-                    $scope.championships = championshipsObj;
-                });
+			fetchingDataService
+				.getAllChampionships()
+				.then(function (championshipsObj) {
+					$scope.championships = championshipsObj;
+				});
 
 			$scope.setSortingOrder = function () {
 				$scope.sortingOrder = !$scope.sortingOrder;
