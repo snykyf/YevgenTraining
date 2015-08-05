@@ -9,7 +9,7 @@ var watch = require('gulp-watch');
 
 // Paths
 var jsPath = 'src/js/**/*.js';
-var htmlPath = 'src/**/*.html';
+var htmlPath = 'src/**/**/*.html';
 var sassPath = 'src/sass/main.scss';
 
 

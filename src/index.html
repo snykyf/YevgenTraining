@@ -14,6 +14,17 @@
 			<div ui-view="list"></div>
 		</div>
 
+		<div style="clear: both">--------------------------------------------------------------------------------</div>
+		<div ng-controller="NotebookCtrl">
+			<form ng-submit="addNote(noteTitle);resetForm();">
+				<input class="span3" ng-model="noteTitle" size="16" type="text" placeholder="Add a note">
+				<button class="btn btn-success" type="button"
+						ng-disabled="!noteTitle" ng-click="addNote(noteTitle);resetForm();">Add Note
+				</button>
+			</form>
+			<my-notebook notes="getNotes()"></my-notebook>
+		</div>
+
 		<script src="vendor/vendor.js"></script>
 		<script src="js/main.js"></script>
 	</body>
