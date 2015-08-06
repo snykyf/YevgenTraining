@@ -1,8 +1,8 @@
-<ul>
-	<li ng-repeat="championship in championships track by $index">
-		<a ui-sref="championships.detailed({id: championship.id_championship})">
-			{{::championship.name}}
-		</a>
-	</li>
-</ul>
-<div ui-view="detailed"></div>
+<div class="panel-body col-md-6">
+	<button ng-repeat="championship in championships track by $index"
+			ui-sref="championships.detailed({id: championship.id_championship})"
+			type="button" class="list-group-item">
+		{{::championship.name}}
+	</button>
+</div>
+<div ui-view="detailed" class="col-md-6"></div>

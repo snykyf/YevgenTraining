@@ -1,8 +1,8 @@
-<ul>
-	<li ng-repeat="match in matches track by $index">
-		<a ui-sref="matches.detailed({id: match.idMatch})">
-			{{::match.firstTeam }} - {{::match.secondTeam}}
-		</a>
-	</li>
-</ul>
-<div ui-view="detailed"></div>
+<div class="panel-body col-md-6">
+	<button ng-repeat="match in matches track by $index"
+			ui-sref="matches.detailed({id: match.idMatch})"
+			type="button" class="list-group-item">
+		{{::match.firstTeam }} - {{::match.secondTeam}}
+	</button>
+</div>
+<div ui-view="detailed" class="col-md-6"></div>

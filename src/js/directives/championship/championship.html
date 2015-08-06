@@ -1,6 +1,8 @@
 <img ng-src="{{emblemUrl}}">
-<ul>
-	<li ng-repeat="team in championship track by $index" ng-if="team.name">
-		<a ui-sref="teams.detailed({id: team.id_teams})">{{::team.name}}</a>
-	</li>
-</ul>
+<div>
+	<button ng-repeat="team in championship track by $index" ng-if="team.name"
+			ui-sref="teams.detailed({id: team.id_teams})"
+			type="button" class="list-group-item">
+		{{::team.name}}
+	</button>
+</div>
