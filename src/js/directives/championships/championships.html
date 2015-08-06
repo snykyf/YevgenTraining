@@ -1,8 +1,8 @@
-<div class="panel-body col-md-6">
+<div class="panel-body col-xs-6">
 	<button ng-repeat="championship in championships track by $index"
 			ui-sref="championships.detailed({id: championship.id_championship})"
 			type="button" class="list-group-item">
 		{{::championship.name}}
 	</button>
 </div>
-<div ui-view="detailed" class="col-md-6"></div>
+<div ui-view="detailed" class="col-xs-6"></div>
