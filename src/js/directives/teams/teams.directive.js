@@ -4,7 +4,7 @@ angular.module('footballInfo')
 
         return {
             restrict: 'E',
-            templateUrl: "js/teams/teams.html",
+            templateUrl: "templates/teams.html",
 
             scope: {
                 championships: '='

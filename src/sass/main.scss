@@ -1,40 +1,7 @@
-//TODO: temporaty styles to see if gulp task is working
-$font-stack: Helvetica, sans-serif;
-$primary-color: #333;
-
-body {
-	font: 100% $font-stack;
-	color: $primary-color;
-
-	a {
-		text-decoration: none;
-		cursor: pointer;
-		color: deepskyblue;
-	}
-
-	.container {
-		margin: 30px 0 0;
-
-		ul {
-			li {
-				a {
-					display: block;
-					padding: 3px 6px;
-				}
-			}
-		}
-
-		.detailed {
-			float: right;
-			padding-top: 30px;
-		}
-
-		ul.list {
-			float: left;
-		}
-
-		img {
-			width: 50px;
-		}
+.container {
+	.list-view {
+		padding: 10px;
+		border: 1px solid; //TODO: tmp style
+		margin-top: 75px;
 	}
 }

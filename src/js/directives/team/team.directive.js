@@ -1,13 +1,14 @@
 angular.module('footballInfo')
-    .directive('matchesD', function () {
+    .directive('teamD', function () {
         'use strict';
 
         return {
             restrict: 'E',
-            templateUrl: 'js/matches/matches.html',
+            templateUrl: 'templates/team.html',
 
             scope: {
-                matches: '='
+                team: '=',
+                emblemUrl: '='
             }
         };
     });

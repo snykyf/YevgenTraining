@@ -9,7 +9,15 @@ var watch = require('gulp-watch');
 
 // Paths
 var jsPath = 'src/js/**/*.js';
-var htmlPath = 'src/**/**/*.html';
+var htmlDirectivesPath = [
+	'src/js/directives/championship/*.html',
+	'src/js/directives/championships/*.html',
+	'src/js/directives/match/*.html',
+	'src/js/directives/matches/*.html',
+	'src/js/directives/team/*.html',
+	'src/js/directives/teams/*.html'
+];
+var htmlIndexPath = 'src/index.html';
 var sassPath = 'src/sass/main.scss';
 var vendorJsPath = 'bower_components/**/**/**.min.js';
 var vendorCssPath = 'bower_components/bootstrap/dist/css/bootstrap.min.css';
@@ -39,11 +47,17 @@ gulp.task('vendor-css', function () {
 		.pipe(gulp.dest('dist/vendor'));
 });
 
-// Move HTML and templates
-gulp.task('html', function () {
+// Move directive templates
+gulp.task('html-directives', function () {
 	return gulp
-		.src(htmlPath)
-		.pipe(gulp.dest('dist'));
+		.src(htmlDirectivesPath)
+		.pipe(gulp.dest('dist/templates'));
+});
+
+gulp.task('html-index', function () {
+	return gulp
+		.src(htmlIndexPath)
+		.pipe(gulp.dest('dist/'));
 });
 
 // Compile and minify SASS
@@ -62,8 +76,13 @@ gulp.task('watch', function() {
 	gulp.watch(sassPath, ['sass']);
 });
 
+//group tasks
+gulp.task('html', ['html-directives', 'html-index']);
+gulp.task('js', ['vendor-js', 'src-js']);
+gulp.task('css', ['sass', 'vendor-css']);
+
 //To run needed gulp tasks for first time
-gulp.task('build', ['vendor-js', 'src-js', 'html', 'sass', 'vendor-css']);
+gulp.task('build', ['js', 'html', 'css']);
 
 // Default Task
 gulp.task('default', ['build', 'watch']);
