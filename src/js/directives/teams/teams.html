@@ -1,13 +1,25 @@
-Search teams <input type="text" ng-model="search"/>
+<input type="text" ng-model="search" placeholder="Start searching"/>
 <a ng-click="setSortingOrder()">Change sorting order</a>
-<ul>
-	<li ng-repeat="championship in championships track by $index" ng-if="(championship.teams | filter:search).length">
-		<a ui-sref="championships.detailed({id: championship.id_championship})"> {{::championship.name}}</a>
-		<ul>
-			<li ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder" ng-if="team.name">
-				<a ui-sref="teams.detailed({id: team.id_teams})">{{::team.name}}</a>
-			</li>
-		</ul>
-	</li>
-</ul>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div  ng-repeat="championship in championships track by $index"
+		  ng-if="(championship.teams | filter:search).length" class="panel">
+		<div class="panel-heading" role="tab" id="heading{{$index}}">
+			<h4 class="panel-title">
+				<a ui-sref="championships.detailed({id: championship.id_championship})"> {{::championship.name}}</a>
+				<a role="button" data-toggle="collapse" href="#collapse{{$index}}"
+				   aria-expanded="true" aria-controls="collapse{{$index}}">+
+				</a>
+			</h4>
+		</div>
+		<div id="collapse{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index}}">
+			<div class="panel-body">
+				<ul>
+					<li ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder" ng-if="team.name">
+						<a ui-sref="teams.detailed({id: team.id_teams})">{{::team.name}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 <div ui-view="detailed"></div>

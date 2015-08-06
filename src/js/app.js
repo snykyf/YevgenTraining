@@ -2,8 +2,6 @@ angular.module('footballInfo', ['ui.router'])
 	.config(function ($stateProvider, $urlRouterProvider) {
 		'use strict';
 
-		$urlRouterProvider.otherwise("/dashboard");
-
 		$stateProvider
 			.state('dashboard', {
 				url: '/dashboard',
