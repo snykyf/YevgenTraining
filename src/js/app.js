@@ -9,8 +9,7 @@ angular.module('footballInfo', ['ui.router'])
 				url: '/dashboard',
 				views: {
 					'list': {
-						templateUrl: 'templates/dashboard.html',
-						controller: 'DashboardCtrl'
+						template: "Hi, it's Dashboard page"
 					}
 				}
 			})
@@ -18,7 +17,7 @@ angular.module('footballInfo', ['ui.router'])
 				url: '/championships',
 				views: {
 					'list': {
-						templateUrl: 'templates/championships.html',
+						template: '<championships-d championships="championships"></championships-d>',
 						controller: 'ChampionshipsCtrl'
 					}
 				}
@@ -27,8 +26,8 @@ angular.module('footballInfo', ['ui.router'])
 				url: '/:id',
 				views: {
 					'detailed': {
-						templateUrl: 'templates/championship-detailed.html',
-						controller: 'DetailedChampionshipCtrl'
+						template: '<championship-d championship="championship" emblem-url="emblemUrl"></championship-d>',
+						controller: 'ChampionshipCtrl'
 					}
 				}
 			})
@@ -36,7 +35,7 @@ angular.module('footballInfo', ['ui.router'])
 				url: '/teams',
 				views: {
 					'list': {
-						templateUrl: 'templates/teams.html',
+						template: '<teams-d championships="championships"></teams-d>',
 						controller: 'TeamsCtrl'
 					}
 				}
@@ -45,8 +44,8 @@ angular.module('footballInfo', ['ui.router'])
 				url: '/:id',
 				views: {
 					'detailed': {
-						templateUrl: 'templates/team-detailed.html',
-						controller: 'DetailedTeamCtrl'
+						template: '<team-d team="team" emblem-url="emblemUrl"></team-d>',
+						controller: 'TeamCtrl'
 					}
 				}
 			})
@@ -54,7 +53,7 @@ angular.module('footballInfo', ['ui.router'])
 				url: '/matches',
 				views: {
 					'list': {
-						templateUrl: 'templates/matches.html',
+						template: '<matches-d matches="matches"></matches-d>',
 						controller: 'MatchesCtrl'
 					}
 				}
@@ -63,8 +62,8 @@ angular.module('footballInfo', ['ui.router'])
 				url: '/:id',
 				views: {
 					'detailed': {
-						templateUrl: 'templates/match-detailed.html',
-						controller: 'DetailedMatchCtrl'
+						template: '<match-d match="match" flag-url="flagUrl"></match-d>',
+						controller: 'MatchCtrl'
 					}
 				}
 			});

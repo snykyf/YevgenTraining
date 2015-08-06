@@ -1,5 +1,5 @@
 angular.module('footballInfo')
-	.controller('DetailedChampionshipCtrl', [
+	.controller('ChampionshipCtrl', [
 		'$scope', '$stateParams', 'fetchingDataService', 'constants',
 		function ($scope, $stateParams, fetchingDataService, constants) {
 			'use strict';
@@ -7,7 +7,7 @@ angular.module('footballInfo')
 			fetchingDataService
 				.getChampionship($stateParams.id)
 				.then(function (championshipObj) {
-					$scope.championshipTeams = championshipObj.teams;
+					$scope.championship = championshipObj.teams;
 					$scope.emblemUrl = constants.championships.emblemUrl + championshipObj.image;
 				});
 		}

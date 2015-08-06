@@ -1,15 +1,15 @@
 angular.module('footballInfo')
-	.controller('DetailedTeamCtrl', [
+	.controller('MatchCtrl', [
 		'$scope', '$stateParams', 'fetchingDataService', 'constants',
 		function ($scope, $stateParams, fetchingDataService, constants) {
 			'use strict';
 
-			$scope.emblemUrl = constants.teams.emblemUrl;
+			$scope.flagUrl = constants.matches.flagUrl;
 
 			fetchingDataService
-				.getTeam($stateParams.id)
-				.then(function (team) {
-					$scope.team = team;
+				.getMatch($stateParams.id)
+				.then(function (match) {
+					$scope.match = match;
 				});
 		}
 	]);
