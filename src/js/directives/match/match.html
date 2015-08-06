@@ -1,9 +1,13 @@
 <div>
 	<img ng-src="{{flagUrl + match.image}}"/>
 	<p>
-		<a ui-sref="teams.detailed({id: match.idFirstTeam})">{{::match.firstTeam}}</a>
+		<a ui-sref="teams.detailed({id: match.idFirstTeam})">
+			{{::match.firstTeam}}
+		</a>
 		<span>-</span>
-		<a ui-sref="teams.detailed({id: match.idSecondTeam})">{{::match.secondTeam}}</a>
+		<a ui-sref="teams.detailed({id: match.idSecondTeam})">
+			{{::match.secondTeam}}
+		</a>
 		<span>, {{::match.firstTeamGoal}} - {{::match.secondTeamGoal}}</span>
 	</p>
 	<p>

@@ -1,5 +1,5 @@
 angular.module('footballInfo', ['ui.router'])
-	.config(function ($stateProvider, $urlRouterProvider) {
+	.config(function ($stateProvider) {
 		'use strict';
 
 		$stateProvider

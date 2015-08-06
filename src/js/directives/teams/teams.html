@@ -5,19 +5,24 @@
 		  ng-if="(championship.teams | filter:search).length" class="panel">
 		<div class="panel-heading" role="tab" id="heading{{$index}}">
 			<h4 class="panel-title">
-				<a ui-sref="championships.detailed({id: championship.id_championship})"> {{::championship.name}}</a>
+				<a ui-sref="championships.detailed({id: championship.id_championship})">
+					{{::championship.name}}
+				</a>
 				<a role="button" data-toggle="collapse" href="#collapse{{$index}}"
 				   aria-expanded="true" aria-controls="collapse{{$index}}">+
 				</a>
 			</h4>
 		</div>
-		<div id="collapse{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index}}">
+		<div id="collapse{{$index}}" class="panel-collapse collapse"
+			 role="tabpanel" aria-labelledby="heading{{$index}}">
 			<div class="panel-body">
-				<ul>
-					<li ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder" ng-if="team.name">
-						<a ui-sref="teams.detailed({id: team.id_teams})">{{::team.name}}</a>
-					</li>
-				</ul>
+				<div class="list-group">
+					<button ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder"
+							ng-if="team.name" ui-sref="teams.detailed({id: team.id_teams})"
+							type="button" class="list-group-item">
+						{{::team.name}}
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>

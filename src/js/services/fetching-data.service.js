@@ -31,7 +31,10 @@ angular.module('footballInfo')
 
 			factory.getAllChampionships = function () {
 				return $q
-					.all([fetchAllItems(constants.championships), fetchAllItems(constants.teams)])
+					.all([
+						fetchAllItems(constants.championships),
+						fetchAllItems(constants.teams)
+					])
 					.then(function (data) {
 						var championshipsArr = data[0],
 							teamsArr = data[1],
