@@ -8,14 +8,15 @@ var minifyCSS = require('gulp-minify-css');
 var watch = require('gulp-watch');
 
 // Paths
-var jsPath = 'src/js/**/*.js';
+var jsPath = 'src/js/**/**/*.js';
 var htmlDirectivesPath = [
 	'src/js/directives/championship/*.html',
 	'src/js/directives/championships/*.html',
 	'src/js/directives/match/*.html',
 	'src/js/directives/matches/*.html',
 	'src/js/directives/team/*.html',
-	'src/js/directives/teams/*.html'
+	'src/js/directives/teams/*.html',
+	'src/js/directives/navigation/*.html'
 ];
 var htmlIndexPath = 'src/index.html';
 var sassPath = 'src/sass/main.scss';
@@ -69,17 +70,18 @@ gulp.task('sass', function () {
 		.pipe(gulp.dest('dist/css/'));
 });
 
-// Run tasks on files changes
-gulp.task('watch', function() {
-	gulp.watch(jsPath, ['src-js']);
-	gulp.watch(htmlPath, ['html']);
-	gulp.watch(sassPath, ['sass']);
-});
-
 //group tasks
 gulp.task('html', ['html-directives', 'html-index']);
 gulp.task('js', ['vendor-js', 'src-js']);
 gulp.task('css', ['sass', 'vendor-css']);
+
+// Run tasks on files changes
+gulp.task('watch', function() {
+	gulp.watch(jsPath, ['src-js']);
+	gulp.watch(htmlDirectivesPath, ['html-directives']);
+	gulp.watch(htmlIndexPath, ['html-index']);
+	gulp.watch(sassPath, ['sass']);
+});
 
 //To run needed gulp tasks for first time
 gulp.task('build', ['js', 'html', 'css']);

@@ -19,5 +19,18 @@ angular.module('footballInfo')
 			idName: 'idMatch',
 			flagUrl: 'http://footballbet.com.ua/teams/country/',
 			shouldCache: false
+		},
+
+		navigation: {
+			home: {
+				url: 'dashboard',
+				name: 'Football Info'
+			},
+			links: [
+				{ url: 'dashboard',     name: 'Dashboard' },
+				{ url: 'championships', name: 'Championships'},
+				{ url: 'teams',         name: 'Teams'},
+				{ url: 'matches',       name: 'Matches'}
+			]
 		}
 	});
