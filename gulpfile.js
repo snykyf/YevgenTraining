@@ -11,32 +11,45 @@ var watch = require('gulp-watch');
 var jsPath = 'src/js/**/*.js';
 var htmlPath = 'src/**/**/*.html';
 var sassPath = 'src/sass/main.scss';
+var vendorJsPath = 'bower_components/**/**/**.min.js';
+var vendorCssPath = 'bower_components/bootstrap/dist/css/bootstrap.min.css';
 
 
 // Concatenate & Minify JS
 gulp.task('src-js', function () {
-	return gulp.src(jsPath)
+	return gulp
+		.src(jsPath)
 		.pipe(concat('main.js'))
 		//.pipe(uglify()) //TODO: uncomment it when finish
 		.pipe(gulp.dest('dist/js'));
 });
 
 // Move libs
-gulp.task('move-libs', function () {
-	return gulp.src('bower_components/**/**.min.js')
+gulp.task('vendor-js', function () {
+	return gulp
+		.src(vendorJsPath)
 		.pipe(concat('vendor.js'))
+		.pipe(gulp.dest('dist/vendor'));
+});
+
+gulp.task('vendor-css', function () {
+	return gulp
+		.src(vendorCssPath)
+		.pipe(concat('vendor.css'))
 		.pipe(gulp.dest('dist/vendor'));
 });
 
 // Move HTML and templates
 gulp.task('html', function () {
-	return gulp.src(htmlPath)
+	return gulp
+		.src(htmlPath)
 		.pipe(gulp.dest('dist'));
 });
 
 // Compile and minify SASS
 gulp.task('sass', function () {
-	return gulp.src(sassPath)
+	return gulp
+		.src(sassPath)
 		.pipe(sass())
 		//.pipe(minifyCSS()) TODO: uncomment it when finish
 		.pipe(gulp.dest('dist/css/'));
@@ -50,7 +63,7 @@ gulp.task('watch', function() {
 });
 
 //To run needed gulp tasks for first time
-gulp.task('build', ['move-libs', 'src-js', 'html', 'sass']);
+gulp.task('build', ['vendor-js', 'src-js', 'html', 'sass', 'vendor-css']);
 
 // Default Task
 gulp.task('default', ['build', 'watch']);
