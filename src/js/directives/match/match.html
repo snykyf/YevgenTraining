@@ -1,16 +1,19 @@
 <div class="block">
-	<img ng-src="{{flagUrl + match.image}}"/>
-	<p>
-		<a ui-sref="teams.detailed({id: match.idFirstTeam})">
-			{{::match.firstTeam}}
-		</a>
-		<span>-</span>
-		<a ui-sref="teams.detailed({id: match.idSecondTeam})">
-			{{::match.secondTeam}}
-		</a>
-		<span>, {{::match.firstTeamGoal}} - {{::match.secondTeamGoal}}</span>
-	</p>
-	<p>
-		<span>{{::match.title}}, {{::match.date}}</span>
-	</p>
+	<div class="header">
+		<b>{{::match.title}}</b>
+		<img ng-src="{{flagUrl + match.image}}"/>
+	</div>
+	<div class="content">
+		<p>{{::match.date}}</p>
+		<p>
+			<a ui-sref="teams.detailed({id: match.idFirstTeam})">
+				{{::match.firstTeam}}
+			</a>
+			<span>-</span>
+			<a ui-sref="teams.detailed({id: match.idSecondTeam})">
+				{{::match.secondTeam}}
+			</a>
+			<span>, {{::match.firstTeamGoal}} - {{::match.secondTeamGoal}}</span>
+		</p>
+	</div>
 </div>

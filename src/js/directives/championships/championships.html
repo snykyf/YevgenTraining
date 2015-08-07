@@ -1,8 +1,15 @@
-<div class="panel-body col-xs-6 block">
-	<button ng-repeat="championship in championships track by $index"
-			ui-sref="championships.detailed({id: championship.id_championship})"
-			type="button" class="list-group-item">
-		{{::championship.name}}
-	</button>
+<div class="col-xs-6">
+	<div class="block">
+		<div class="header"><b>Championships</b></div>
+		<div class="content">
+			<div class="panel-body">
+				<button ng-repeat="championship in championships track by $index"
+						ui-sref="championships.detailed({id: championship.id_championship})"
+						type="button" class="list-group-item">
+					{{::championship.name}}
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
 <div ui-view="detailed" class="col-xs-6"></div>

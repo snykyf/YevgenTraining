@@ -1,10 +1,15 @@
 <div class="block">
-	<img ng-src="{{emblemUrl}}">
-	<div class="panel-body">
-		<button ng-repeat="	team in championship track by $index" ng-if="team.name"
-				ui-sref="teams.detailed({id: team.id_teams})"
-				type="button" class="list-group-item">
-			{{::team.name}}
-		</button>
+	<div class="header">
+		<b>Championship</b>
+		<img ng-src="{{emblemUrl}}">
+	</div>
+	<div class="content">
+		<div class="panel-body">
+			<button ng-repeat="	team in championship track by $index" ng-if="team.name"
+					ui-sref="teams.detailed({id: team.id_teams})"
+					type="button" class="list-group-item">
+				{{::team.name}}
+			</button>
+		</div>
 	</div>
 </div>

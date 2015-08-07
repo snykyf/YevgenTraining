@@ -1,8 +1,15 @@
-<div class="panel-body col-xs-6 block">
-	<button ng-repeat="match in matches track by $index"
-			ui-sref="matches.detailed({id: match.idMatch})"
-			type="button" class="list-group-item">
-		{{::match.firstTeam }} - {{::match.secondTeam}}
-	</button>
+<div class="col-xs-6">
+	<div class="block">
+		<div class="header"><b>Matches</b></div>
+		<div class="content">
+			<div class="panel-body">
+				<button ng-repeat="match in matches track by $index"
+						ui-sref="matches.detailed({id: match.idMatch})"
+						type="button" class="list-group-item">
+					{{::match.firstTeam }} - {{::match.secondTeam}}
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
 <div ui-view="detailed" class="col-xs-6"></div>
