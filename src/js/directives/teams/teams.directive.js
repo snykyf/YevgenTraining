@@ -3,6 +3,7 @@ angular.module('footballInfo')
         'use strict';
 		//TODO: how not change url in accordion?
 		//TODO: why it tries to get match flag without match.image
+		//TODO: sorting order
 
         return {
             restrict: 'E',
@@ -14,9 +15,11 @@ angular.module('footballInfo')
 
             link: function (scope) {
                 scope.sortingOrder = false;
-                scope.setSortingOrder = function () {
-                    scope.sortingOrder = !scope.sortingOrder;
-                };
+				//scope.isExpanded = false;
+				/*scope.setAllExpanded = function ($event) {
+					debugger;
+					scope.isExpanded = !scope.isExpanded;
+				};*/
             }
         };
     });

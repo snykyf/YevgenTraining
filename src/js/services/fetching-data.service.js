@@ -16,6 +16,7 @@ angular.module('footballInfo')
 			function findById (store, id, idName) {
 				var result;
 
+				//TODO: change to simple for
 				for (var key in store ) {
 					if (store[key][idName] === id) {
 						result = store[key];
@@ -47,6 +48,7 @@ angular.module('footballInfo')
 							championships[championship.id_championship] = championship;
 						});
 
+						debugger;
 						return championships;
 					});
 			};

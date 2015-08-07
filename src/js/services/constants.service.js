@@ -1,5 +1,6 @@
 angular.module('footballInfo')
 	.constant('constants', {
+		//TODO: add one more constants for navigation
 		championships : {
 			url: 'http://footballbet.com.ua/api/championships/',
 			idName: 'id_championship',

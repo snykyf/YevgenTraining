@@ -4,7 +4,7 @@
 		<img ng-src="{{emblemUrl}}">
 	</div>
 	<div class="panel-body">
-		<button ng-repeat="	team in championship track by $index" ng-if="team.name"
+		<button ng-repeat="team in championship track by $index" ng-if="team.name"
 				ui-sref="teams.detailed({id: team.id_teams})"
 				type="button" class="list-group-item">
 			{{::team.name}}

@@ -32,6 +32,10 @@ First Angular application - Football info.
  - get it worked from dist folder (done)
  - add search & sorting for teams (done)
 
+ - championships/:id from teams page -> add active link
+ - teams/:id from championships/:id -> add active link
+ - accordion: change icon on click
+
  - refactoring JS (done)
  - check code style https://github.com/toddmotto/angularjs-styleguide
  - add tests

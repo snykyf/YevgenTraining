@@ -1,6 +1,7 @@
 angular.module('footballInfo', ['ui.router'])
 	.config(function ($stateProvider) {
 		'use strict';
+		//TODO: remove detailed states
 
 		$stateProvider
 			.state('dashboard', {

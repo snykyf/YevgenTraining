@@ -2,14 +2,14 @@ angular.module('footballInfo')
 	.directive('navigationD', ['$location',
 		function ($location) {
 			'use strict';
+			//TODO: move to view
 
 			return {
 				restrict: 'E',
 				templateUrl: 'templates/navigation.html',
 
 				scope: {
-					navigation: '=',
-					isActive: "="
+					navigation: '='
 				},
 
 				link: function (scope) {
