@@ -22,6 +22,7 @@ var htmlIndexPath = 'src/index.html';
 var sassPath = 'src/sass/main.scss';
 var vendorJsPath = 'bower_components/**/**/**.min.js';
 var vendorCssPath = 'bower_components/bootstrap/dist/css/bootstrap.min.css';
+var fontsPath = 'bower_components/bootstrap/fonts/**.**';
 
 
 // Concatenate & Minify JS
@@ -70,10 +71,17 @@ gulp.task('sass', function () {
 		.pipe(gulp.dest('dist/css/'));
 });
 
+// Move fonts
+gulp.task('move-fonts', function () {
+	return gulp
+		.src(fontsPath)
+		.pipe(gulp.dest('dist/fonts'));
+});
+
 //group tasks
 gulp.task('html', ['html-directives', 'html-index']);
 gulp.task('js', ['vendor-js', 'src-js']);
-gulp.task('css', ['sass', 'vendor-css']);
+gulp.task('css', ['sass', 'vendor-css', 'move-fonts']);
 
 // Run tasks on files changes
 gulp.task('watch', function() {

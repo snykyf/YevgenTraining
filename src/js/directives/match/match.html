@@ -1,9 +1,9 @@
-<div class="block">
-	<div class="header">
+<div class="panel panel-info">
+	<div class="panel-heading">
 		<b>{{::match.title}}</b>
 		<img ng-src="{{flagUrl + match.image}}"/>
 	</div>
-	<div class="content">
+	<div class="panel-body">
 		<p>{{::match.date}}</p>
 		<p>
 			<a ui-sref="teams.detailed({id: match.idFirstTeam})">
