@@ -1,0 +1,13 @@
+<div class="col-xs-6">
+	<div class="panel panel-info">
+		<div class="panel-heading"><b>Matches</b></div>
+		<div class="panel-body">
+			<button ng-repeat="match in matches track by $index"
+					ui-sref="matches.detailed({id: match.idMatch})"
+					type="button" class="list-group-item">
+				{{::match.firstTeam }} - {{::match.secondTeam}}
+			</button>
+		</div>
+	</div>
+</div>
+<div ui-view="detailed" class="col-xs-6"></div>

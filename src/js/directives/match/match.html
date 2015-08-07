@@ -1,0 +1,20 @@
+<!--TODO: format date, add one time db-->
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<b>{{::match.title}}</b>
+		<img ng-src="{{flagUrl + match.image}}"/>
+	</div>
+	<div class="panel-body">
+		<p>{{::match.date}}</p>
+		<p>
+			<a ui-sref="teams.detailed({id: match.idFirstTeam})">
+				{{::match.firstTeam}}
+			</a>
+			<span>-</span>
+			<a ui-sref="teams.detailed({id: match.idSecondTeam})">
+				{{::match.secondTeam}}
+			</a>
+			<span>, {{::match.firstTeamGoal}} - {{::match.secondTeamGoal}}</span>
+		</p>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="col-xs-6">
+	<div class="panel panel-info">
+		<div class="panel-heading"><b>Championships</b></div>
+		<div class="panel-body">
+			<button ng-repeat="championship in championships track by $index"
+					ui-sref="championships.detailed({id: championship.id_championship})"
+					type="button" class="list-group-item">
+				{{::championship.name}}
+			</button>
+		</div>
+	</div>
+</div>
+<div ui-view="detailed" class="col-xs-6"></div>

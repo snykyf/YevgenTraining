@@ -13,23 +13,29 @@ First Angular application - Football info.
  - the same + custom directive
 
  - add Teams view (done)
- - add search to view
- - add sorting
+ - add search to view (done)
+ - add sorting (done)
  - add detailed view on click (done)
- - the same + custom directive
+ - the same + custom directive (done)
 
  - add Championships view (done)
  - add detailed view on click (done)
- - the same + custom directive
+ - the same + custom directive (done)
 
  - add Dashboard view
- - move getting data to service
+ - move getting data to service (done)
 
- - add bootstrap
+ - add bootstrap (done)
  - add gulp task (done)
  - add phone screen supporting
 
  - get it worked from dist folder (done)
+ - add search & sorting for teams (done)
 
- - refactoring
+ - championships/:id from teams page -> add active link
+ - teams/:id from championships/:id -> add active link
+ - accordion: change icon on click
+
+ - refactoring JS (done)
+ - check code style https://github.com/toddmotto/angularjs-styleguide
  - add tests

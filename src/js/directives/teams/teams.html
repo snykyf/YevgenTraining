@@ -1,0 +1,50 @@
+<!--TODO: a to button-->
+<div class="col-xs-6">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<div class="input-group">
+				<input ng-model="search"
+						type="text" class="form-control" placeholder="Start searching">
+				<span class="input-group-addon">
+					<a ng-click="sortingOrder = !sortingOrder;">
+						<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+					</a>
+				</span>
+			</div>
+		</div>
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			<div  ng-repeat="championship in championships track by $index"
+					ng-if="(championship.teams | filter:search).length" class="panel">
+				<div class="panel-heading" role="tab" id="heading{{$index}}">
+					<h4 class="panel-title">
+						<a ui-sref="championships.detailed({id: championship.id_championship})">
+							{{::championship.name}}
+						</a>
+						<a role="button" data-toggle="collapse" href="#collapse{{$index}}"
+								aria-expanded="true" aria-controls="collapse{{$index}}">
+							<span ng-if="!isExpanded" class="glyphicon glyphicon-menu-right"
+									aria-hidden="true">
+							</span>
+							<span ng-if="isExpanded" class="glyphicon glyphicon-menu-down"
+									aria-hidden="true">
+							</span>
+						</a>
+					</h4>
+				</div>
+				<div id="collapse{{$index}}" class="panel-collapse collapse"
+						role="tabpanel" aria-labelledby="heading{{$index}}">
+					<div class="panel-body">
+						<div class="list-group">
+							<button ng-repeat="team in championship.teams | filter:search | orderBy: team.name:sortingOrder"
+									ng-if="team.name" ui-sref="teams.detailed({id: team.id_teams})"
+									type="button" class="list-group-item">
+								{{::team.name}}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ui-view="detailed" class="col-xs-6"></div>
