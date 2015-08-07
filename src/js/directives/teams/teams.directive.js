@@ -1,6 +1,8 @@
 angular.module('footballInfo')
     .directive('teamsD', function () {
         'use strict';
+		//TODO: how not change url in accordion?
+		//TODO: why it tries to get match flag without match.image
 
         return {
             restrict: 'E',

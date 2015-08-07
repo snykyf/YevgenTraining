@@ -1,11 +1,14 @@
 <div class="col-xs-6">
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<b>Teams</b>
-			<input type="text" ng-model="search" placeholder="Start searching"/>
-			<a ng-click="setSortingOrder()">
-				<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
-			</a>
+			<div class="input-group">
+				<input ng-model="search" type="text" class="form-control" placeholder="Start searching">
+				<span class="input-group-addon">
+					<a ng-click="setSortingOrder()">
+						<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+					</a>
+				</span>
+			</div>
 		</div>
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 			<div  ng-repeat="championship in championships track by $index"
